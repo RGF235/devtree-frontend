@@ -47,7 +47,7 @@ export default function DevTree({ data }: DevTreeProps) {
         <>
             <Header />
             
-            <div className="bg-gray-100  min-h-screen py-10">
+            <div className="bg-gray-100  min-h-screen py-10" style={{ backgroundImage: "url('/ground.svg')" }}>
                 <main className="mx-auto max-w-5xl p-10 md:p-0">
                     <NavigationTabs />
 

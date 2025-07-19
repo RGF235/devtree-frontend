@@ -13,6 +13,11 @@ export async function getUser() {
     }
 }
 
+export async function getLinkHistory() {
+  const { data } = await api.get('/user/history');
+  return data;
+}
+
 export async function updateProfile(formData: User) {
     try {
         const { data } = await api.patch<string>('/user', formData)
@@ -55,6 +60,18 @@ export async function searchByHandle(handle: string) {
         return data
     } catch (error) {
         if (isAxiosError (error) && error.response) {
+            throw new Error(error.response.data.error)
+        }
+    }
+}
+
+export async function incrementViews(handle: string) {
+    try {
+        const url = `/${handle}/views`
+        const { data } = await api.post<{views: number}>(url)
+        return data.views
+    } catch (error) {
+        if (isAxiosError (error) && error.response) {
             throw new Error(error.response.data.error)
         }
     }

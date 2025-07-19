@@ -8,6 +8,7 @@ import ProfileView from './views/ProfileView'
 import HandleView from './views/HandleView'
 import NotFoundView from './views/NotFoundView'
 import HomeView from './views/HomeView'
+import LinkHistoryView from './views/LinkHistoryView'
 
 export default function Router() {
 
@@ -29,6 +30,7 @@ export default function Router() {
                 <Route path='/404' element={<AuthLayout />}>
                     <Route element={<NotFoundView />} index={true} />
                 </Route>
+                <Route path="/user/history" element={<LinkHistoryView />} />
             </Routes>
         </BrowserRouter>
     )
